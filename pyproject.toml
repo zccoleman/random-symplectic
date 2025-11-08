@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm", "numpy", "sympy"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "randomsymplectic"
+authors = [
+    {name = "Zachary Coleman", email = "coleman.zacharyc@gmail.com"},
+]
+description = "Random d-nary symplecitc matrices for qudit Clifford gates."
+readme = "README.md"
+requires-python = ">=3.8"
+keywords = ["quantum computing", "qudit", "symplectic", "clifford"]
+license = "MIT"
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "numpy",
+    "sympy",
+]
+dynamic = ["version"]
+
+[project.optional-dependencies]
+stim = ["stim"]
+
+[project.urls]
+Homepage = "https://github.com/zccoleman/qclif"
+
+[tool.setuptools.dynamic]
+version = {attr = "randomsymplectic.__version__"}

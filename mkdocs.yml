@@ -1,0 +1,38 @@
+site_name: Qudit Cliffords
+# site_url: https://test.org
+
+plugins:
+- search
+- autorefs
+- mkdocstrings:
+    handlers:
+      python: 
+        options:
+            relative_crossrefs: true
+            docstring_section_style: spacy
+          
+
+extra_javascript: 
+- https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+
+markdown_extensions: 
+- mdx_math:
+    enable_dollar_delimiter: True
+
+nav:
+  - Home: index.md
+  - Installation: installation.md
+  - Getting Started: usage.md
+  - API Reference:
+    - Symplectic Arrays: symplectic.md
+    - D-Nary Arrays: dnary.md
+    - D-Nary Arithmetic: dnary_arithmetic.md 
+
+
+
+
+theme:
+  name: "readthedocs"
+
+
+
