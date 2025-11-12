@@ -8,35 +8,22 @@ from abc import ABCMeta, abstractmethod
 from randomsymplectic.dnary_arithmetic import rint, dnary_inverse, int_to_dnary, dnary_to_int
 from randomsymplectic.validation import validate_primes
 
-def d_get(cls):
-    return cls._d
+def d_get(cls) -> int:
+    if hasattr(cls, '_d'):
+        return cls._d
+    raise TypeError(
+        'Tried to access the modulus d on an undefined class.' \
+        'Use `DnaryArray.set_d(...)` to create a subclass with a ' \
+        'specific value of d.')
 def d_set(cls, value):
     raise AttributeError('You cannot change d')
 def d_del(cls):
     raise AttributeError('You cannot delete d')
-dprop = property(d_get, d_set, d_del, 'The modulus of the set of matrices.')
+dprop = property(d_get, d_set, d_del, 'The modulus of the set of arrays.')
 
 class DNaryMeta(ABCMeta):
     """A metaclass for d-nary arrays that handles property creation for the class modulus d as an immutable class property.
     """
-    def __new__(cls, clsname, bases, attrs):
-        if 'd' in attrs:
-            d = attrs.pop('d')
-            
-            if (validate_prime:=attrs.get('_validate_prime')) is not None:
-                pass
-            else:
-                for base in bases:
-                    if (validate_prime:=getattr(base, '_validate_prime', None)) is not None:
-                        break
-                else:
-                    validate_prime=False
-
-            if validate_prime:
-                validate_primes(d)
-            attrs['_d'] = d
-            attrs['d'] = dprop
-        return super().__new__(cls, clsname, bases, attrs)
     d=dprop
     
     def check_or_coerce_type(cls, u:Any) -> Self:
@@ -56,7 +43,7 @@ class DNaryMeta(ABCMeta):
             try:
                 u = cls(u)
             except Exception as e:
-                raise TypeError("Input must be symplectic array-like", e, u)
+                raise TypeError("Input must be array-like", e, u)
         return u
     
 
@@ -107,15 +94,8 @@ class DnaryArray(np.ndarray, metaclass=DNaryMeta):
     ```
     """
     
-    _validate_prime=False
+    d: int = dprop
     _class_instances = {}
-    @property
-    @abstractmethod
-    def d(self):
-        """The modulus of the array class.
-        Should not be changed after class creation.
-        """
-        raise NotImplementedError
     
     def __new__(cls, data: Any, *args, **kwargs) -> Self:
         if not isinstance(cls.d, int):
@@ -456,7 +436,7 @@ class DnaryArray(np.ndarray, metaclass=DNaryMeta):
             _type_: _description_
         """
         if d not in cls._class_instances:
-            cls._class_instances[d] = type(f'{cls.__name__}(d={d})', (cls, ), {'d':d})
+            cls._class_instances[d] = type(f'{cls.__name__}(d={d})', (cls, ), {'_d':d})
 
         return cls._class_instances[d]
         

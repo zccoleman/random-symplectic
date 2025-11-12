@@ -22,8 +22,10 @@ def test_random_inverse():
 
 
 def test_composite_dnary():
-    class D4(DnaryArray):d=4
-    D4 = DnaryArray.set_d(4)
+    class D4(DnaryArray):_d=4
+    D4([1,2,3,4])
+    D4_two = DnaryArray.set_d(4)
+    D4_two([1,2,3,4])
 
 def test_dnary_logic():
     one = D3([1])
