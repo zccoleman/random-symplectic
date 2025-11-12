@@ -1,9 +1,9 @@
 [build-system]
-requires = ["setuptools", "setuptools-scm", "numpy", "sympy"]
+requires = ["setuptools", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "randomsymplectic"
+name = "random-symplectic"
 authors = [
     {name = "Zachary Coleman", email = "coleman.zacharyc@gmail.com"},
 ]
