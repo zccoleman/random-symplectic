@@ -1,13 +1,13 @@
 import pytest
 import numpy as np
 
-from randomsymplectic import SymplecticArray
+from randomsymplectic import DnaryArray
 
 
-SP2 = SymplecticArray.set_d(2)
-SP3 = SymplecticArray.set_d(3)
-SP5 = SymplecticArray.set_d(5)
-SP13 = SymplecticArray.set_d(13)
+SP2 = DnaryArray.set_d(2)
+SP3 = DnaryArray.set_d(3)
+SP5 = DnaryArray.set_d(5)
+SP13 = DnaryArray.set_d(13)
 
 def test_attributes_persist():
     u = SP5([1,0,0,0])

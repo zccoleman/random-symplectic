@@ -1,6 +1,6 @@
 import pytest
 
-from randomsymplectic import DnaryArray, SymplecticArray
+from randomsymplectic import DnaryArray
 
 
 def test_needs_d_for_instantiation():
@@ -47,11 +47,3 @@ def test_dnary_identical_instances():
     other_D3 = DnaryArray.set_d(3)
     assert D3 is other_D3
 
-def test_symplectic_identical_instances():
-    S3 = SymplecticArray.set_d(3)
-    other_S3 = SymplecticArray.set_d(3)
-    assert S3 is other_S3
-
-def test_separate_instances():
-    D3 = DnaryArray.set_d(89)
-    assert 89 not in SymplecticArray._class_instances

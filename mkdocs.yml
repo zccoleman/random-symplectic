@@ -27,7 +27,6 @@ nav:
   - Installation: installation.md
   - Getting Started: usage.md
   - API Reference:
-    - Symplectic Arrays: symplectic.md
     - D-Nary Arrays: dnary.md
     - D-Nary Arithmetic: dnary_arithmetic.md 
 

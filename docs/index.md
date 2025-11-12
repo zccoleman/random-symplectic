@@ -13,14 +13,15 @@ pip install random-symplectic
 
 
 ## Getting Started
-The package implements the `DnaryArray` class, a subclass of `numpy`'s `ndarray` for arrays over the integers mod $d$. Users can specify $d$ using the classmethod (`DnaryArray.set_d`)[randomsymplectic.DnaryArray.set_d], which will return a subclass of `DnaryArray` specialized to the given modulus.
+The package implements the [`DnaryArray`][randomsymplectic.DnaryArray] class, a subclass of `numpy`'s `ndarray` for arrays over the integers mod $d$. Users can specify $d$ using the classmethod [`DnaryArray.set_d`][randomsymplectic.DnaryArray.set_d], which will return a subclass of [`DnaryArray`][randomsymplectic.DnaryArray] specialized to the given modulus.
 ```python
+>>> from randomsymplectic import DnaryArray
 >>> D3 = DnaryArray.set_d(3)
 >>> D3([1, 2, 3, 4])
 DnaryArray(d=3)([1, 2, 0, 1])
 ```
 
-In particular, a specialized subclass exposes a plethora of useful methods for generating specific d-nary arrays.
+In particular, a specialized subclass exposes a plethora of useful methods for doing symplectic algebra over the group of d-nary arrays, as well as generating symplecitc matrices.
 
 ## References
 1. E. Hostens, J. Dehaene, and B. De Moor, Stabilizer states and Clifford operations for systems of arbitrary dimensions and modular arithmetic, [Phys. Rev. A 71, 042315 (2005)](https://journals.aps.org/pra/abstract/10.1103/PhysRevA.71.042315), [arXiv:quant-ph/0408190](https://arxiv.org/abs/quant-ph/0408190).
