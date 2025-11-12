@@ -4,6 +4,9 @@ site_name: Qudit Cliffords
 plugins:
 - search
 - autorefs
+- bibtex:
+    bib_file: docs/references.bib
+    csl_file: docs/bibstyle.csl
 - mkdocstrings:
     handlers:
       python: 

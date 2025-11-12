@@ -23,6 +23,7 @@ def test_random_inverse():
 
 def test_composite_dnary():
     class D4(DnaryArray):d=4
+    D4 = DnaryArray.set_d(4)
 
 def test_dnary_logic():
     one = D3([1])
