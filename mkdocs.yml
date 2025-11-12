@@ -4,12 +4,12 @@ site_name: Qudit Cliffords
 plugins:
 - search
 - autorefs
-- bibtex:
-    bib_file: docs/references.bib
-    csl_file: docs/bibstyle.csl
+# - bibtex:
+#     bib_file: docs/references.bib
+#     csl_file: docs/bibstyle.csl
 - mkdocstrings:
     handlers:
-      python: 
+      python:
         options:
             relative_crossrefs: true
             docstring_section_style: spacy
