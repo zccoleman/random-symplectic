@@ -25,7 +25,7 @@ In particular, a specialized subclass exposes a plethora of useful methods for d
 
 ### Random Symplectic Matrices
 
-`DnaryArray` has two classmethods for generating uniformly random symplecitc matrices: `DnaryArray.random_symplectic` and `DnaryArray.from_index`. The former operates by generating random d-nary vectors of lengths building up to the size of the matrix to be generated. The latter deterministically generates each of those vectors from the provided index.
+`DnaryArray` has two classmethods for generating uniformly random symplectic matrices: `DnaryArray.random_symplectic` and `DnaryArray.from_index`. The former operates by generating random d-nary vectors of lengths building up to the size of the matrix to be generated. The latter deterministically generates each of those vectors from the provided index.
 
 ```python
 >>> from randomsymplectic import DnaryArray
