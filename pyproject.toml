@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "random-symplectic"
 authors = [
-    {name = "Zachary Coleman", email = "coleman.zacharyc@gmail.com"},
+    {name = "Zachary C. Coleman", email = "coleman.zacharyc@gmail.com"},
 ]
 description = "Random d-nary symplecitc matrices for qudit Clifford gates."
 readme = "README.md"
@@ -21,11 +21,10 @@ dependencies = [
 ]
 dynamic = ["version"]
 
-[project.optional-dependencies]
-stim = ["stim"]
 
 [project.urls]
-Homepage = "https://github.com/zccoleman/qclif"
+Homepage = "https://github.com/zccoleman/random-symplectic"
+docs = "https://zccoleman.github.io/random-symplectic/"
 
 [tool.setuptools.dynamic]
 version = {attr = "randomsymplectic.__version__"}
