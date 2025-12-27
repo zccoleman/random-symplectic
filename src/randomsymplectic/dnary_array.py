@@ -69,9 +69,9 @@ class DnaryArray(np.ndarray, metaclass=DNaryMeta):
     $\mathbb{Z}_d$, the modulo-$d$ integers, can be performed:
 
     - Validation of symplectic matrices
-        ([`.is_symplectic_matrix()`][randomsymplecitc.DnaryArray.is_symplectic_matrix()])
+        ([`.is_symplectic_matrix()`][randomsymplectic.DnaryArray.is_symplectic_matrix])
     - Symplectic vector inner products
-        (`u | v` or [`u.inner_product_with(v)`][randomsymplecitc.DnaryArray.inner_product])
+        (`u | v` or [`u.inner_product_with(v)`][randomsymplectic.DnaryArray.inner_product])
     - Uniform sampling over the group of symplectic arrays of a given size 
         ([`.random_symplectic(n)`][randomsymplectic.DnaryArray.random_symplectic])
     - Accessing the defining symplectic array $\Lambda_n$ 
@@ -103,7 +103,7 @@ class DnaryArray(np.ndarray, metaclass=DNaryMeta):
 
         An equivalent definition for a symplectic matrix
         is the requirement that, for each $0\leq i< n$, the 
-        matrix's $i$th and $(i+n)$th columns.
+        matrix's $i$th and $(i+n)$th columns form a symplectic pair.
 
     Examples:
     ```
