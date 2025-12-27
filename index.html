@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="None" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Random Symplectic</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="assets/_mkdocstrings.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Home";
+        var mkdocs_page_input_path = "index.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="." class="icon icon-home"> Random Symplectic
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Home</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting Started</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#random-symplectic-matrices">Random Symplectic Matrices</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#references">References</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">API Reference</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="dnary/">D-Nary Arrays</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="dnary_arithmetic/">D-Nary Arithmetic</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href=".">Random Symplectic</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Home</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="random-symplectic">Random Symplectic</h1>
+<p>Python library for generating uniformly random d-nary symplectic matrices for prime <script type="math/tex">d</script>. These matrices form a representation of the <script type="math/tex">n</script>-qudit Clifford  group and can be decomposed into elementary 1- and 2-qudit gates (Hostens, 2005). Uniform sampling from the Clifford group is a critical subroutine to randomized benchmarking (Magesan, 2012).</p>
+<p>The algorithm implements a mapping from the integers to <script type="math/tex">\text{Sp}(2n, \mathbb{Z}_d)</script>, reducing sampling from the symplectic group to sampling an integer, and is an extension of the qubit-based method presented by Koenig and Smolin (2014). A manuscript detailing the algorithm is forthcoming.</p>
+<h2 id="installation">Installation</h2>
+<p>To install the package for Python 3.8+, do</p>
+<pre><code>pip install random-symplectic
+</code></pre>
+<h2 id="getting-started">Getting Started</h2>
+<p>The package implements the <a class="autorefs autorefs-internal" title="randomsymplectic.DnaryArray" href="dnary/#randomsymplectic.DnaryArray"><code>DnaryArray</code></a> class, a subclass of <code>numpy</code>'s <code>ndarray</code> for arrays over the integers mod <script type="math/tex">d</script>. Users can specify <script type="math/tex">d</script> using the classmethod <a class="autorefs autorefs-internal" title="set_d(d)
+
+  
+      classmethod
+  " href="dnary/#randomsymplectic.DnaryArray.set_d"><code>DnaryArray.set_d</code></a>, which will return a subclass of <a class="autorefs autorefs-internal" title="randomsymplectic.DnaryArray" href="dnary/#randomsymplectic.DnaryArray"><code>DnaryArray</code></a> specialized to the given modulus.</p>
+<pre><code class="language-python">&gt;&gt;&gt; from randomsymplectic import DnaryArray
+&gt;&gt;&gt; D3 = DnaryArray.set_d(3)
+&gt;&gt;&gt; D3([1, 2, 3, 4])
+DnaryArray(d=3)([1, 2, 0, 1])
+</code></pre>
+<p>In particular, a specialized subclass exposes a plethora of useful methods for doing symplectic algebra over the group of d-nary arrays, as well as generating symplectic matrices.</p>
+<h3 id="random-symplectic-matrices">Random Symplectic Matrices</h3>
+<p><a class="autorefs autorefs-internal" title="randomsymplectic.DnaryArray" href="dnary/#randomsymplectic.DnaryArray"><code>DnaryArray</code></a> has two classmethods for generating uniformly random symplecitc matrices: <a class="autorefs autorefs-internal" title="random_symplectic(n)
+
+  
+      classmethod
+  " href="dnary/#randomsymplectic.DnaryArray.random_symplectic"><code>DnaryArray.random_symplectic</code></a> and <a class="autorefs autorefs-internal" title="from_index(index, n)
+
+  
+      classmethod
+  " href="dnary/#randomsymplectic.DnaryArray.from_index"><code>DnaryArray.from_index</code></a>. The former operates by generating random d-nary vectors of lengths building up to the size of the matrix to be generated. The latter deterministically generates each of those vectors from the provided index.</p>
+<pre><code class="language-python">&gt;&gt;&gt; from randomsymplectic import DnaryArray
+&gt;&gt;&gt; D3 = DnaryArray.set_d(3)
+&gt;&gt;&gt; D3.from_index(0, n=1)
+DnaryArray(d=3)([[1, 0],
+                 [0, 1]])
+&gt;&gt;&gt; D3.from_index(12152, 3)
+DnaryArray(d=3)([[1, 0, 1, 2, 1, 1],
+                 [0, 1, 0, 2, 1, 2],
+                 [2, 0, 0, 1, 1, 0],
+                 [0, 0, 2, 0, 1, 0],
+                 [0, 0, 0, 0, 1, 0],
+                 [2, 0, 2, 0, 2, 0]])
+</code></pre>
+<h2 id="references">References</h2>
+<ol>
+<li>E. Hostens, J. Dehaene, and B. De Moor, Stabilizer states and Clifford operations for systems of arbitrary dimensions and modular arithmetic, <a href="https://journals.aps.org/pra/abstract/10.1103/PhysRevA.71.042315">Phys. Rev. A 71, 042315 (2005)</a>, <a href="https://arxiv.org/abs/quant-ph/0408190">arXiv:quant-ph/0408190</a>.</li>
+<li>E. Magesan, J. M. Gambetta, and J. Emerson, Characterizing quantum gates via randomized benchmarking, <a href="https://journals.aps.org/pra/abstract/10.1103/PhysRevA.85.042311">Phys. Rev. A 85, 042311 (2012)</a>, <a href="https://arxiv.org/abs/1109.6887v2">arXiv:1109.6887v2</a>.</li>
+<li>R. Koenig and J. A. Smolin, How to efficiently select an arbitrary Clifford group element, <a href="https://doi.org/10.1063/1.4903507">Journal of Mathematical Physics 55, 122202 (2014)</a>, <a href="https://arxiv.org/abs/1406.2170">arXiv:1406.2170</a>.</li>
+</ol>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="dnary/" class="btn btn-neutral float-right" title="D-Nary Arrays">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+      <span><a href="dnary/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.6.1
+Build Date UTC : 2025-12-27 21:42:32.071082+00:00
+-->

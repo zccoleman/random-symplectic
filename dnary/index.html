@@ -1,0 +1,2924 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>D-Nary Arrays - Random Symplectic</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../assets/_mkdocstrings.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "D-Nary Arrays";
+        var mkdocs_page_input_path = "dnary.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Random Symplectic
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">API Reference</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">D-Nary Arrays</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#randomsymplectic.DnaryArray.Lambda">Lambda</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#randomsymplectic.DnaryArray.LambdaN">LambdaN</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#randomsymplectic.DnaryArray.Transvection">Transvection</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#randomsymplectic.DnaryArray.Transvection.__call__">__call__</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#randomsymplectic.DnaryArray.Transvection.find_transvection">find_transvection</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#randomsymplectic.DnaryArray.Transvection.transvect_matrix_columns">transvect_matrix_columns</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#randomsymplectic.DnaryArray.Transvection.transvect_vector">transvect_vector</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#randomsymplectic.DnaryArray.basis_vector">basis_vector</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#randomsymplectic.DnaryArray.det">det</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#randomsymplectic.DnaryArray.determinant">determinant</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#randomsymplectic.DnaryArray.dnary_inverse">dnary_inverse</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#randomsymplectic.DnaryArray.dnary_to_int">dnary_to_int</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#randomsymplectic.DnaryArray.embed_symplectic">embed_symplectic</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#randomsymplectic.DnaryArray.eye">eye</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#randomsymplectic.DnaryArray.from_index">from_index</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#randomsymplectic.DnaryArray.inner_product">inner_product</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#randomsymplectic.DnaryArray.inner_product_with">inner_product_with</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#randomsymplectic.DnaryArray.int_to_dnary">int_to_dnary</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#randomsymplectic.DnaryArray.inv">inv</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#randomsymplectic.DnaryArray.inverse">inverse</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#randomsymplectic.DnaryArray.is_invertible">is_invertible</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#randomsymplectic.DnaryArray.is_matrix">is_matrix</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#randomsymplectic.DnaryArray.is_nonzero">is_nonzero</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#randomsymplectic.DnaryArray.is_symplectic_matrix">is_symplectic_matrix</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#randomsymplectic.DnaryArray.is_symplectic_pair">is_symplectic_pair</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#randomsymplectic.DnaryArray.is_symplectic_pair_with">is_symplectic_pair_with</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#randomsymplectic.DnaryArray.is_vector">is_vector</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#randomsymplectic.DnaryArray.is_zero">is_zero</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#randomsymplectic.DnaryArray.mod_matrix_inv">mod_matrix_inv</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#randomsymplectic.DnaryArray.n">n</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#randomsymplectic.DnaryArray.nn">nn</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#randomsymplectic.DnaryArray.random_array">random_array</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#randomsymplectic.DnaryArray.random_symplectic">random_symplectic</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#randomsymplectic.DnaryArray.set_d">set_d</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#randomsymplectic.DnaryArray.symplectic_group_size">symplectic_group_size</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#randomsymplectic.DnaryArray.zeros">zeros</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dnary_arithmetic/">D-Nary Arithmetic</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Random Symplectic</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">API Reference</li>
+      <li class="breadcrumb-item active">D-Nary Arrays</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <div class="doc doc-object doc-class">
+
+
+
+<h2 id="randomsymplectic.DnaryArray" class="doc doc-heading">
+            <code>randomsymplectic.DnaryArray</code>
+
+
+</h2>
+
+
+    <div class="doc doc-contents first">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="numpy.ndarray">ndarray</span></code></p>
+
+
+
+        <p>A subclass of <code>numpy.ndarray</code> for arrays over the integers
+mod <script type="math/tex">d</script>. Users can specify <script type="math/tex">d</script> using the classmethod
+<a class="autorefs autorefs-internal" title="set_d(d)
+
+  
+      classmethod
+  " href="#randomsymplectic.DnaryArray.set_d"><code>DnaryArray.set_d</code></a>,
+which will return a subclass of <code>DnaryArray</code> specialized
+to the given modulus. Instances of that subclass behave as
+normal <code>numpy</code> arrays, but all outputs will be computed
+using arithmetic in <script type="math/tex">\mathbb{Z}_d</script>.</p>
+<p>Instances can be created from any array-like data
+acceptable by <code>np.array(...)</code>.</p>
+<p>Within a given d-nary class, 
+<a href="https://en.wikipedia.org/wiki/Symplectic_matrix">symplectic</a>
+algebra on matrices and vectors over 
+<script type="math/tex">\mathbb{Z}_d</script>, the modulo-<script type="math/tex">d</script> integers, can be performed:</p>
+<ul>
+<li>Validation of symplectic matrices
+    (<a class="autorefs autorefs-internal" title="is_symplectic_matrix()" href="#randomsymplectic.DnaryArray.is_symplectic_matrix"><code>.is_symplectic_matrix()</code></a>)</li>
+<li>Symplectic vector inner products
+    (<code>u | v</code> or <a class="autorefs autorefs-internal" title="inner_product(v1, v2)
+
+  
+      classmethod
+  " href="#randomsymplectic.DnaryArray.inner_product"><code>u.inner_product_with(v)</code></a>)</li>
+<li>Uniform sampling over the group of symplectic arrays of a given size 
+    (<a class="autorefs autorefs-internal" title="random_symplectic(n)
+
+  
+      classmethod
+  " href="#randomsymplectic.DnaryArray.random_symplectic"><code>.random_symplectic(n)</code></a>)</li>
+<li>Accessing the defining symplectic array <script type="math/tex">\Lambda_n</script> 
+    (either <a class="autorefs autorefs-internal" title="Lambda
+
+  
+      property
+  " href="#randomsymplectic.DnaryArray.Lambda"><code>A.Lambda</code></a> 
+    matching the invoking array's dimension, or the classmethod
+    <a class="autorefs autorefs-internal" title="LambdaN(n)
+
+  
+      classmethod
+  " href="#randomsymplectic.DnaryArray.LambdaN"><code>.LambdaN(n)</code></a> for a given <script type="math/tex">n</script>)</li>
+</ul>
+
+
+<details class="note" open>
+  <summary>Note</summary>
+  <p>For a given <script type="math/tex">n>0</script>, the symplectic group <script type="math/tex">\text{Sp}(2n, \mathbb{Z}_d)</script>
+is the group of <script type="math/tex">2n\times2n</script> matrices <script type="math/tex">A</script> such that
+<script type="math/tex; mode=display"> A^T \Lambda_n A=\mathbb{I}_{2n},</script>
+where
+<script type="math/tex; mode=display">\Lambda_n=\begin{bmatrix}0 & -\mathbb{I}_n \\ \mathbb{I}_n & 0 \end{bmatrix} \text{ mod } d</script>
+and <script type="math/tex">\mathbb{I}_n</script> is the <script type="math/tex">n\times n</script> identity matrix.</p>
+<p>The matrix <script type="math/tex">\Lambda_n</script> may be defined differently in other contexts.
+The definition used here follows
+<a href="https://arxiv.org/abs/quant-ph/0408190">arXiv:quant-ph/0408190</a>.
+See <a href="https://en.wikipedia.org/wiki/Symplectic_matrix#The_matrix_%CE%A9">here</a>
+for other definitions.</p>
+<p>Similarly, the symplectic inner product <script type="math/tex">\langle v, w\rangle</script>
+between length-<script type="math/tex">2n</script> vectors <script type="math/tex">v,w</script> is
+defined as
+<script type="math/tex; mode=display"> \langle v, w\rangle = v^T\Lambda_n w.</script>
+</p>
+<p>If <script type="math/tex">\langle v, w\rangle=-1 \text{ mod } d</script>, we say 
+<script type="math/tex">(v,w)</script> is a symplectic pair.</p>
+<p>An equivalent definition for a symplectic matrix
+is the requirement that, for each <script type="math/tex">0\leq i< n</script>, the 
+matrix's <script type="math/tex">i</script>th and <script type="math/tex">(i+n)</script>th columns form a symplectic pair.</p>
+</details>        <p>Examples:</p>
+<pre><code>&gt;&gt;&gt; D3 = DnaryArray.set_d(3)
+&gt;&gt;&gt; D3([1, 2, 3, 4])
+DnaryArray(d=3)([1, 2, 0, 1])
+
+&gt;&gt;&gt; D3.eye(4)
+D3([[1, 0, 0, 0],
+    [0, 1, 0, 0],
+    [0, 0, 1, 0],
+    [0, 0, 0, 1]])
+
+&gt;&gt;&gt; D3.eye(4)-2
+D3([[2, 1, 1, 1],
+    [1, 2, 1, 1],
+    [1, 1, 2, 1],
+    [1, 1, 1, 2]])
+
+&gt;&gt;&gt; (D3.eye(4)-2).inverse()
+D3([[2, 1, 1, 1],
+    [1, 2, 1, 1],
+    [1, 1, 2, 1],
+    [1, 1, 1, 2]])
+
+&gt;&gt;&gt; import numpy as np
+&gt;&gt;&gt; np.linalg.matrix_power(D3.eye(4)-2, 2)
+D3([[1, 0, 0, 0],
+    [0, 1, 0, 0],
+    [0, 0, 1, 0],
+    [0, 0, 0, 1]])
+
+&gt;&gt;&gt; MyD6Array = DnaryArray.set_d(6)
+&gt;&gt;&gt; (2 * MyD6Array.eye(2)) @ [2,3]
+MyD6Array([4, 0])
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="randomsymplectic.DnaryArray.Lambda" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">Lambda</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="typing.Self">Self</span></code>
+              –
+              <div class="doc-md-description">
+                <p>The defining symplectic array matching the invoking
+object's dimension (<script type="math/tex">2n\times 2n</script>).</p>
+<p>See <a class="autorefs autorefs-internal" title="LambdaN(n)
+
+  
+      classmethod
+  " href="#randomsymplectic.DnaryArray.LambdaN"><code>.LambdaN</code></a>.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="randomsymplectic.DnaryArray.LambdaN" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">LambdaN</span><span class="p">(</span><span class="n">n</span><span class="p">)</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Returns the defining symplectic array <script type="math/tex">\Lambda_n</script> for any given <script type="math/tex">n</script> 
+using the class modulus <script type="math/tex">d</script>.</p>
+<p>See <a class="autorefs autorefs-internal" title="randomsymplectic.DnaryArray" href="#randomsymplectic.DnaryArray"><code>DnaryArray</code></a>.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>n</code></b>
+                  (<code><span title="int">int</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>
+<script type="math/tex">\Lambda_n</script> is a <script type="math/tex">2n\times 2n</script> array.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="typing.Self">Self</span></code>
+              –
+              <div class="doc-md-description">
+                <p>The <script type="math/tex">d</script>-nary (2n, 2n) array that defines the symplectic group and symplectic inner product.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="randomsymplectic.DnaryArray.Transvection" class="doc doc-heading">
+            <code>Transvection</code>
+
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+
+
+        <p>A class representing transvections, a class of linear transformations on vectors.
+Transvections are defined by a vector <script type="math/tex">\vec u</script> and a constant <script type="math/tex">c</script>, and act as
+<script type="math/tex">v\mapsto T_{u, c}(v)=v + c\langle v, u\rangle u</script>. All arithmetic is mod d.
+Transvections applied to matrices apply the above transformation column-wise.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>u</code></b>
+                  (<code><a class="autorefs autorefs-internal" title="randomsymplectic.DnaryArray (randomsymplectic.dnary_array.DnaryArray)" href="#randomsymplectic.DnaryArray">DnaryArray</a></code>)
+              –
+              <div class="doc-md-description">
+                <p>The vector to transvect by.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>c</code></b>
+                  (<code><span title="int">int</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>The constant of the transvection.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="randomsymplectic.DnaryArray.Transvection.__call__" class="doc doc-heading">
+            <code class="highlight language-python"><span class="fm">__call__</span><span class="p">(</span><span class="n">vector_or_matrix</span><span class="p">)</span></code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Apply the transvection to a vector or matrix of the same type as the transvection's vector.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>vector_or_matrix</code></b>
+                  (<code><a class="autorefs autorefs-internal" title="randomsymplectic.DnaryArray (randomsymplectic.dnary_array.DnaryArray)" href="#randomsymplectic.DnaryArray">DnaryArray</a></code>)
+              –
+              <div class="doc-md-description">
+                <p>A vector or matrix of the same type as the Transvection's vector.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+<b><code>DnaryArray</code></b>(                  <code><a class="autorefs autorefs-internal" title="randomsymplectic.DnaryArray (randomsymplectic.dnary_array.DnaryArray)" href="#randomsymplectic.DnaryArray">DnaryArray</a></code>
+)              –
+              <div class="doc-md-description">
+                <p>The transvection applied to the vector or matrix.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="randomsymplectic.DnaryArray.Transvection.find_transvection" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">find_transvection</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Returns a tuple of transvections <script type="math/tex">T_1, T_2</script> such that <script type="math/tex">T_2(T_1(u))=v</script>.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>u</code></b>
+                  (<code><a class="autorefs autorefs-internal" title="randomsymplectic.DnaryArray (randomsymplectic.dnary_array.DnaryArray)" href="#randomsymplectic.DnaryArray">DnaryArray</a></code>)
+              –
+              <div class="doc-md-description">
+                <p>Vector you are transvecting <em>from</em>.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>v</code></b>
+                  (<code><a class="autorefs autorefs-internal" title="randomsymplectic.DnaryArray (randomsymplectic.dnary_array.DnaryArray)" href="#randomsymplectic.DnaryArray">DnaryArray</a></code>)
+              –
+              <div class="doc-md-description">
+                <p>Vector you are transvecting <em>to</em>.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code>(<a class="autorefs autorefs-internal" title="Transvection (randomsymplectic.dnary_array.DnaryArray.Transvection)" href="#randomsymplectic.DnaryArray.Transvection">Transvection</a>, <a class="autorefs autorefs-internal" title="Transvection (randomsymplectic.dnary_array.DnaryArray.Transvection)" href="#randomsymplectic.DnaryArray.Transvection">Transvection</a>)</code>
+              –
+              <div class="doc-md-description">
+                <p>A tuple (T1, T2) such that T2(T1(u))==v</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="randomsymplectic.DnaryArray.Transvection.transvect_matrix_columns" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">transvect_matrix_columns</span><span class="p">(</span><span class="n">A</span><span class="p">)</span></code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Apply the transvection to a matrix of the same type as the transvection's vector.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>A</code></b>
+                  (<code><a class="autorefs autorefs-internal" title="randomsymplectic.DnaryArray (randomsymplectic.dnary_array.DnaryArray)" href="#randomsymplectic.DnaryArray">DnaryArray</a></code>)
+              –
+              <div class="doc-md-description">
+                <p>A matrix of the same type as the Transvection's vector.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+<b><code>DnaryArray</code></b>(                  <code><a class="autorefs autorefs-internal" title="randomsymplectic.DnaryArray (randomsymplectic.dnary_array.DnaryArray)" href="#randomsymplectic.DnaryArray">DnaryArray</a></code>
+)              –
+              <div class="doc-md-description">
+                <p>The transvection applied to the matrix.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="randomsymplectic.DnaryArray.Transvection.transvect_vector" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">transvect_vector</span><span class="p">(</span><span class="n">v</span><span class="p">)</span></code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Apply the transvection to a vector of the same type as the transvection's vector.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>v</code></b>
+                  (<code><a class="autorefs autorefs-internal" title="randomsymplectic.DnaryArray (randomsymplectic.dnary_array.DnaryArray)" href="#randomsymplectic.DnaryArray">DnaryArray</a></code>)
+              –
+              <div class="doc-md-description">
+                <p>A vector of the same type as the Transvection's vector.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+<b><code>DnaryArray</code></b>(                  <code><a class="autorefs autorefs-internal" title="randomsymplectic.DnaryArray (randomsymplectic.dnary_array.DnaryArray)" href="#randomsymplectic.DnaryArray">DnaryArray</a></code>
+)              –
+              <div class="doc-md-description">
+                <p>The transvection applied to the vector.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+
+</div>
+
+
+
+
+  </div>
+
+    </div>
+
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="randomsymplectic.DnaryArray.basis_vector" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">basis_vector</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Generates the <script type="math/tex">i</script>th standard basis vector of
+length <script type="math/tex">n</script>. This is the vector of all zeros except
+the <script type="math/tex">i</script>th component equal to <script type="math/tex">1</script>.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>i</code></b>
+                  (<code><span title="int">int</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>The component of the basis vector.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>n</code></b>
+                  (<code><span title="int">int</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>The length of the vector</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="typing.Self">Self</span></code>
+              –
+              <div class="doc-md-description">
+                <p>The <script type="math/tex">i</script>th standard basis vector.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>        <p>Examples:</p>
+<pre><code>&gt;&gt;&gt; class D3(DnaryArray): d=3
+&gt;&gt;&gt; D3.basis_vector(1, 5)
+D3([0, 1, 0, 0, 0])
+</code></pre>
+
+
+    </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="randomsymplectic.DnaryArray.det" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">det</span><span class="p">()</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Alias for <a class="autorefs autorefs-internal" title="determinant()" href="#randomsymplectic.DnaryArray.determinant"><code>.determinant</code></a>.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="int">int</span></code>
+              –
+              <div class="doc-md-description">
+                <p>The determinant of the array modulo <script type="math/tex">d</script>.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="randomsymplectic.DnaryArray.determinant" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">determinant</span><span class="p">()</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="int">int</span></code>
+              –
+              <div class="doc-md-description">
+                <p>The determinant of the array modulo d.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="randomsymplectic.DnaryArray.dnary_inverse" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">dnary_inverse</span><span class="p">(</span><span class="n">n</span><span class="p">)</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Alias for <a class="autorefs autorefs-internal" title="dnary_inverse(n, d)" href="../dnary_arithmetic/#randomsymplectic.dnary_arithmetic.dnary_inverse"><code>dnary_inverse(n, cls.d)</code></a>.
+Calculates the multiplicative inverse of <code>n</code> in <script type="math/tex">\mathbb{Z}_d</script> if it exists.</p>
+<p>If <script type="math/tex">d</script> is prime and <script type="math/tex">n>0</script>, the integer is guaranteed to exist.
+For general <script type="math/tex">d</script>, <script type="math/tex">n^{-1}</script> exists if <script type="math/tex">\text{gcd}(n,d)=1</script>.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>n</code></b>
+                  (<code><span title="int">int</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>The integer to invert.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="int">int</span></code>
+              –
+              <div class="doc-md-description">
+                <p>The integer <script type="math/tex">n^{-1}</script> such that <script type="math/tex">n n^{-1} \text{ mod } d = 1</script>, 
+or <code>None</code> if such an integer does not exist.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="randomsymplectic.DnaryArray.dnary_to_int" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">dnary_to_int</span><span class="p">(</span><span class="n">digits</span><span class="p">)</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Alias for <a class="autorefs autorefs-internal" title="dnary_to_int(digits, d)" href="../dnary_arithmetic/#randomsymplectic.dnary_arithmetic.dnary_to_int"><code>int_to_dnary(n, cls.d)</code></a>.
+Given a list of the <script type="math/tex">d</script>-nary digits of a number, return that
+number in base 10. </p>
+<p>See also [randomsymplectic.DnaryArray.int_to_dnary].</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>digits</code></b>
+                  (<code><span title="list">list</span>[<span title="int">int</span>]</code>)
+              –
+              <div class="doc-md-description">
+                <p>A list of the <script type="math/tex">d</script>-nary digits of a
+number.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="int">int</span></code>
+              –
+              <div class="doc-md-description">
+                <p>The number in base 10.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="randomsymplectic.DnaryArray.embed_symplectic" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">embed_symplectic</span><span class="p">()</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Embeds a <script type="math/tex">2n\times 2n</script> array into a
+<script type="math/tex">(2n+1)\times(2n+1)</script> array via the symplecticity-preserving
+block embedding
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+    M_{11} & M_{12}\\
+    M_{21} & M_{22}
+\end{bmatrix}
+\mapsto
+\begin{bmatrix}
+    1 & 0 & 0 & 0\\
+    0& M_{11} & 0 & M_{12}\\
+    0 & 0 & 1 & 0\\
+    0 & M_{21} & 0 & M_{22}
+\end{bmatrix},
+</script>
+which inserts identity rows/columns at indices
+<script type="math/tex">0</script> and <script type="math/tex">n</script> (Python indexing) and fills the gaps with zeros.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="typing.Self">Self</span></code>
+              –
+              <div class="doc-md-description">
+                <p>The embedded array.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="randomsymplectic.DnaryArray.eye" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">eye</span><span class="p">(</span><span class="n">n</span><span class="p">)</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="typing.Self">Self</span></code>
+              –
+              <div class="doc-md-description">
+                <p>The <code>(n, n)</code> identity matrix with integer type.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="randomsymplectic.DnaryArray.from_index" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">from_index</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Generate an element of the symplectic group from
+that element's index. </p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>index</code></b>
+                  (<code><span title="int">int</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>An integer from 0 (inclusive) to the
+size of the symplectic group (exclusive). See
+<a class="autorefs autorefs-internal" title="symplectic_group_size(n)
+
+  
+      classmethod
+  " href="#randomsymplectic.DnaryArray.symplectic_group_size"><code>.symplectic_group_size</code></a>.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>n</code></b>
+                  (<code><span title="int">int</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>Half the size of the symplectic matrix to be generated,
+or the number of qubits in the equivalent Clifford group.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+<b><code>Self</code></b>(                  <code><span title="typing.Self">Self</span></code>
+)              –
+              <div class="doc-md-description">
+                <p>The symplectic matrix corresponding to the input index.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="randomsymplectic.DnaryArray.inner_product" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">inner_product</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Computes the symplectic inner product of the
+given vectors.</p>
+<p>The symplectic inner product <script type="math/tex">\langle v, w\rangle</script>
+between length-<script type="math/tex">2n</script> vectors <script type="math/tex">v,w</script> is
+defined as
+<script type="math/tex; mode=display"> \langle v, w\rangle = v^T\Lambda_n w.</script>
+</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>v1</code></b>
+                  (<code><span title="typing.Self">Self</span> | <span title="numpy.ndarray">ndarray</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>The first vector. Will be coerced into the type of the calling class.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>v2</code></b>
+                  (<code><span title="typing.Self">Self</span> | <span title="numpy.ndarray">ndarray</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>The second vector. Will be coerced into the type of the calling class.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Raises:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="ValueError">ValueError</span></code>
+              –
+              <div class="doc-md-description">
+                <p>Input arrays are not one-dimensional.</p>
+              </div>
+            </li>
+            <li>
+                  <code><span title="ValueError">ValueError</span></code>
+              –
+              <div class="doc-md-description">
+                <p>Input arrays are not the same size.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="int">int</span></code>
+              –
+              <div class="doc-md-description">
+                <p>The symplectic inner product of <code>v1</code> and <code>v2</code>.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<details class="tip" open>
+  <summary>Tip</summary>
+  <p>If you've already created a vector <code>v</code>, you can call
+<code>v.inner_product_with(w)</code> method to compute
+<script type="math/tex">\langle v,w\rangle</script>.</p>
+</details>
+
+<details class="note" open>
+  <summary>Note</summary>
+  <p>The modulus <script type="math/tex">d</script> is defined by the calling class.
+Thus, <code>v1</code> and <code>v2</code> can be any array-like data, but they
+will be coerced into the type of the calling class
+(by coercing components to integers and modding by <script type="math/tex">d</script>).</p>
+</details>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="randomsymplectic.DnaryArray.inner_product_with" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">inner_product_with</span><span class="p">(</span><span class="n">other</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Compute the symplectic inner product
+of the calling vector with the other vector.</p>
+<p>See the <a class="autorefs autorefs-internal" title="inner_product(v1, v2)
+
+  
+      classmethod
+  " href="#randomsymplectic.DnaryArray.inner_product"><code>.inner_product</code></a>
+classmethod.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>other</code></b>
+                  (<code><span title="typing.Self">Self</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>The other vector.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="int">int</span></code>
+              –
+              <div class="doc-md-description">
+                <p>The symplectic inner product of the calling
+vector with the other vector.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<details class="tip" open>
+  <summary>Tip</summary>
+  <p>Python's pipe operator <code>|</code> is overloaded with this method, so you can
+call <code>v1.inner_product_with(v2)</code> as <code>v1 | v2</code>.</p>
+</details>        <p>Examples:</p>
+<pre><code>&gt;&gt;&gt; D3 = DnaryArray.set_d(3)
+&gt;&gt;&gt; v1 = D3([1, 0, 0, 0])
+&gt;&gt;&gt; v2 = D3([0, 0, 1, 0])
+&gt;&gt;&gt; v1 | v2
+2
+</code></pre>
+
+
+    </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="randomsymplectic.DnaryArray.int_to_dnary" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">int_to_dnary</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">result_list_size</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Alias for <a class="autorefs autorefs-internal" title="int_to_dnary(n, d, result_list_size=None)" href="../dnary_arithmetic/#randomsymplectic.dnary_arithmetic.int_to_dnary"><code>int_to_dnary(n, cls.d)</code></a>.</p>
+<p>Decomposes a base 10 integer into a list of its <script type="math/tex">d</script>-nary digits.</p>
+<p>See also [randomsymplectic.DnaryArray.dnary_to_int].</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>n</code></b>
+                  (<code><span title="int">int</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>The base 10 integer to be factored into its <script type="math/tex">d</script>-nary digits.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>result_list_size</code></b>
+                  (<code><span title="int">int</span> | None</code>, default:
+                      <code>None</code>
+)
+              –
+              <div class="doc-md-description">
+                <p>The length of the
+list to return; if <code>None</code>, will use the minimum number
+of digits to result the input integer in <script type="math/tex">d</script>-nary.
+Defaults to <code>None</code>.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Raises:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="ValueError">ValueError</span></code>
+              –
+              <div class="doc-md-description">
+                <p>Invalid input parameters.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="list">list</span>[<span title="int">int</span>]</code>
+              –
+              <div class="doc-md-description">
+                <p>A list of the <script type="math/tex">d</script>-nary digits of <code>n</code>
+The list has <script type="math/tex">L</script> elements <script type="math/tex">l_i</script> such that <script type="math/tex; mode=display">n=\sum_{i=0}^L l_i d^i.</script>
+</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="randomsymplectic.DnaryArray.inv" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">inv</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Alias for <a class="autorefs autorefs-internal" title="mod_matrix_inv(validate=True, suppress_warnings=True)" href="#randomsymplectic.DnaryArray.mod_matrix_inv"><code>mod_matrix_inv</code></a>.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="typing.Self">Self</span> | None</code>
+              –
+              <div class="doc-md-description">
+                <p>The array's inverse, or <code>None</code> if
+the array is not invertible.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="randomsymplectic.DnaryArray.inverse" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">inverse</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Alias for <a class="autorefs autorefs-internal" title="mod_matrix_inv(validate=True, suppress_warnings=True)" href="#randomsymplectic.DnaryArray.mod_matrix_inv"><code>mod_matrix_inv</code></a>.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="typing.Self">Self</span> | None</code>
+              –
+              <div class="doc-md-description">
+                <p>The array's inverse, or <code>None</code> if the
+array is not invertible.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="randomsymplectic.DnaryArray.is_invertible" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">is_invertible</span><span class="p">()</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Determines if an array is invertible by checking if
+its determinant is invertible in <script type="math/tex">\mathbb{Z}_d</script>.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="bool">bool</span></code>
+              –
+              <div class="doc-md-description">
+                <p>Whether the array is invertible.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="randomsymplectic.DnaryArray.is_matrix" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">is_matrix</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="bool">bool</span></code>
+              –
+              <div class="doc-md-description">
+                <p>Whether this is a 2D array.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="randomsymplectic.DnaryArray.is_nonzero" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">is_nonzero</span><span class="p">()</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="bool">bool</span></code>
+              –
+              <div class="doc-md-description">
+                <p>Whether the array has any nonzero values in it.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="randomsymplectic.DnaryArray.is_symplectic_matrix" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">is_symplectic_matrix</span><span class="p">()</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="bool">bool</span></code>
+              –
+              <div class="doc-md-description">
+                <p>Whether the calling array is a symplectic matrix.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="randomsymplectic.DnaryArray.is_symplectic_pair" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">is_symplectic_pair</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Determine whether a pair of vectors 
+form a symplectic pair.</p>
+<p>Two vectors <script type="math/tex">v, w</script> form a symplectic pair if
+<script type="math/tex; mode=display">\langle v, w\rangle = -1 \text{ mod } d.</script>
+</p>
+<p>See also <a class="autorefs autorefs-internal" title="is_symplectic_pair_with(other)" href="#randomsymplectic.DnaryArray.is_symplectic_pair_with"><code>.is_symplectic_pair_with</code></a>.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>v1</code></b>
+                  (<code><span title="typing.Self">Self</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>The first vector.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>v2</code></b>
+                  (<code><span title="typing.Self">Self</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>The second vector.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="bool">bool</span></code>
+              –
+              <div class="doc-md-description">
+                <p>Whether the vectors form a symplectic pair.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="randomsymplectic.DnaryArray.is_symplectic_pair_with" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">is_symplectic_pair_with</span><span class="p">(</span><span class="n">other</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>If the calling object is a vector (i.e. 1D array),
+determine whether it forms a symplectic pair with another
+vector.</p>
+<p>See the <a class="autorefs autorefs-internal" title="is_symplectic_pair(v1, v2)
+
+  
+      classmethod
+  " href="#randomsymplectic.DnaryArray.is_symplectic_pair"><code>.is_symplectic_pair</code></a>
+classmethod.</p>
+<p>Raises an exception if the calling object is not a vector.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>other</code></b>
+                  (<code><span title="typing.Self">Self</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>The other vector.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Raises:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="TypeError">TypeError</span></code>
+              –
+              <div class="doc-md-description">
+                <p>Both the calling object and the input 
+must be 1d arrays.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="bool">bool</span></code>
+              –
+              <div class="doc-md-description">
+                <p>Whether the two vectors form a
+symplectic pair.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="randomsymplectic.DnaryArray.is_vector" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">is_vector</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="bool">bool</span></code>
+              –
+              <div class="doc-md-description">
+                <p>Whether this is a 1D array.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="randomsymplectic.DnaryArray.is_zero" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">is_zero</span><span class="p">()</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="bool">bool</span></code>
+              –
+              <div class="doc-md-description">
+                <p>Whether the array is all zero.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="randomsymplectic.DnaryArray.mod_matrix_inv" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">mod_matrix_inv</span><span class="p">(</span><span class="n">validate</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">suppress_warnings</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Calculates the matrix inverse in <script type="math/tex">\mathbb{Z}_d</script>-arithmetic
+using
+<script type="math/tex; mode=display">A^{-1}=\frac{1}{|A|}\text{Adj}(A),</script>
+where <script type="math/tex">\text{Adj}(A)</script> is the
+<a href="https://en.wikipedia.org/wiki/Adjugate_matrix">matrix adjugate</a>
+of <script type="math/tex">A</script> and <script type="math/tex">|A|</script> is the determinant.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>validate</code></b>
+                  (<code><span title="bool">bool</span></code>, default:
+                      <code>True</code>
+)
+              –
+              <div class="doc-md-description">
+                <p>Whether to validate the
+result through multiplication. Defaults to True.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>suppress_warnings</code></b>
+                  (<code><span title="bool">bool</span></code>, default:
+                      <code>True</code>
+)
+              –
+              <div class="doc-md-description">
+                <p>If False,
+warnings will be raise if the array is not
+invertible. Defaults to True.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Raises:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="RuntimeError">RuntimeError</span></code>
+              –
+              <div class="doc-md-description">
+                <p>If the inversion fails for an invertible
+array. Theoretically this should never happen.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="typing.Self">Self</span> | None</code>
+              –
+              <div class="doc-md-description">
+                <p>The array's inverse, or <code>None</code> if the array
+is not invertible.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="randomsymplectic.DnaryArray.n" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">n</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Half of the array size. Will raise an exception for odd-sized arrays.</p>
+<p>Defines the defining symplectic array <script type="math/tex">\Lambda_n</script>. See the 
+<a class="autorefs autorefs-internal" title="Lambda
+
+  
+      property
+  " href="#randomsymplectic.DnaryArray.Lambda"><code>.Lambda</code></a> property
+and the <a class="autorefs autorefs-internal" title="LambdaN(n)
+
+  
+      classmethod
+  " href="#randomsymplectic.DnaryArray.LambdaN"><code>.LambdaN</code></a> method. </p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Raises:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="ValueError">ValueError</span></code>
+              –
+              <div class="doc-md-description">
+                <p>Not accessible for odd-sized arrays.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="int">int</span></code>
+              –
+              <div class="doc-md-description">
+                <p>Half of the array size.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="randomsymplectic.DnaryArray.nn" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">nn</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="int">int</span></code>
+              –
+              <div class="doc-md-description">
+                <p>The symplectic array size <script type="math/tex">2n</script>.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="randomsymplectic.DnaryArray.random_array" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">random_array</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">allow_zero</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Returns an array of the given shape with uniform
+random integers mod <script type="math/tex">d</script>, including the all-zero array
+unless specified otherwise.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>shape</code></b>
+                  (<code><span title="tuple">tuple</span>[<span title="int">int</span>]</code>)
+              –
+              <div class="doc-md-description">
+                <p>The shape of the array.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>allow_zero</code></b>
+                  (<code><span title="bool">bool</span></code>, default:
+                      <code>True</code>
+)
+              –
+              <div class="doc-md-description">
+                <p>Whether to allow the zero 
+matrix. Defaults to <code>True</code>.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="typing.Self">Self</span></code>
+              –
+              <div class="doc-md-description">
+                <p>A uniform random <script type="math/tex">d</script>-nary array.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="randomsymplectic.DnaryArray.random_symplectic" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">random_symplectic</span><span class="p">(</span><span class="n">n</span><span class="p">)</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Generate a uniformly random element of the symplectic group.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>n</code></b>
+                  (<code><span title="int">int</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>Half the size of the symplectic matrix to be generated, or the number of qubits in the equivalent Clifford group.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+<b><code>Self</code></b>(                  <code><span title="typing.Self">Self</span></code>
+)              –
+              <div class="doc-md-description">
+                <p>A uniform random <script type="math/tex">d</script>-nary symplectic matrix.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="randomsymplectic.DnaryArray.set_d" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">set_d</span><span class="p">(</span><span class="n">d</span><span class="p">)</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Classmethod for creating a child class with a specific d.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>d</code></b>
+                  (<code><span title="int">int</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>The modulus of the class to create.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+<b><code>_type_</code></b>(                  <code><span title="type">type</span>[<a class="autorefs autorefs-internal" title="randomsymplectic.DnaryArray (randomsymplectic.dnary_array.DnaryArray)" href="#randomsymplectic.DnaryArray">DnaryArray</a>]</code>
+)              –
+              <div class="doc-md-description">
+                <p><em>description</em></p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="randomsymplectic.DnaryArray.symplectic_group_size" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">symplectic_group_size</span><span class="p">(</span><span class="n">n</span><span class="p">)</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Returns the size of the symplectic group for a given <script type="math/tex">n</script>.
+That number is <script type="math/tex; mode=display">\prod_{i=1}^n d^{2i-1}(d^{2i}-1).</script>
+</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>n</code></b>
+                  (<code><span title="int">int</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>Half the size of the symplectic matrix,
+or the number of qubits in the equivalent Clifford group.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="int">int</span></code>
+              –
+              <div class="doc-md-description">
+                <p>The number of different <script type="math/tex">2n\times 2n</script> symplectic
+matrices over <script type="math/tex">\mathbb{Z}_d</script>.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="randomsymplectic.DnaryArray.zeros" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Returns an all-zero array of the given shape.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>shape</code></b>
+                  (<code><span title="int">int</span> | <span title="tuple">tuple</span>[<span title="int">int</span>]</code>)
+              –
+              <div class="doc-md-description">
+                <p>The shape of the desired array.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="typing.Self">Self</span></code>
+              –
+              <div class="doc-md-description">
+                <p>The zero array of the given shape.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+
+</div>
+
+
+
+
+  </div>
+
+    </div>
+
+
+</div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../dnary_arithmetic/" class="btn btn-neutral float-right" title="D-Nary Arithmetic">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../dnary_arithmetic/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
